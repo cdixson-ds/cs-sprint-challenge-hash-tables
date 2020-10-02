@@ -1,8 +1,26 @@
 def has_negatives(a):
     """
-    YOUR CODE HERE
+    For an input list of integers, we wish to know which positive numbers
+    have corresponding negative numbers in the list.
     """
-    # Your code here
+   
+    cache = {}
+    result = []
+
+    count = 1
+
+    #pos greater than zero, add to cache
+    for number in a:
+        if number > 0:
+            if number not in cache:
+                cache[number] = count
+    
+    #neg less than, take absolute value and append to results
+    for number in a:
+        if number < 0:
+            number = abs(number)
+            if number in cache:
+                result.append(number)
 
     return result
 

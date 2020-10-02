@@ -1,10 +1,34 @@
+
+test = [
+    [1, 2, 3, 4, 5],
+    [12, 7, 2, 9, 1],
+    [99, 2, 7, 1,]
+]
+
 def intersection(arrays):
     """
-    YOUR CODE HERE
+    And we need to compute the _intersection_, that is, numbers that exist
+    in all lists.
     """
-    # Your code here
+    cache = {}
+    result = []
+
+    count = 1
+
+    for arr in arrays:
+        for i in arr:
+            if i not in cache:
+                cache[i] = count
+            else:
+                cache[i] += 1
+
+    for j in cache:
+        if cache[j] == len(arrays):
+            result.append(j)
 
     return result
+
+#print(intersection(test))
 
 
 if __name__ == "__main__":
